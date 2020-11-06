@@ -1,0 +1,26 @@
+1# Развертывание среды python
+
+-pip
+-git
+-docker
+-virtualenv 
+
+3# Парсинг текста на SQL
+
+Пример на PL/SQL:
+Input = "Transport_Plane-AirAstana_Passenger_Имя Фамилия_Date-021119_Status-Success"
+Output = "Имя Фамилия" 
+
+create or replace function parse_name(textData varchar2)
+   return varchar2
+is
+   index_3 number;
+   index_4 number;
+begin
+   index_3 := INSTR textData('_', 1, 3) + 1;
+   index_4 := INSTR textData('_', 1, 4);
+   return SUBSTR (textData, index_3 index_4 - index_3 
+end parse_name;
+
+
+
